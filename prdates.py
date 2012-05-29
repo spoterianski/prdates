@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+# Sergey Poterianski
+# License GPL 2.0
+#
 import argparse
 import re
 from datetime import date
@@ -9,7 +11,7 @@ from datetime import timedelta
 
 class DayPrinter(object):
 	"""
-	DayPrinter this is small tool for printing day (yyyymmdd) between to dates
+	DayPrinter this is small tool for printing string yyyymmdd between to dates
 	"""
 	def __init__(self):
 		self.rxDate = re.compile('(?P<year>\d{4})-{,1}(?P<month>\d{2})-{,1}(?P<day>\d{2})')
