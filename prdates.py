@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Sergey Poterianski
-# License GPL 2.0
+#
 #
 import argparse
 import re
@@ -9,9 +9,9 @@ from datetime import date
 from datetime import timedelta
 
 
-class DayPrinter(object):
+class PrintDays:
 	"""
-	DayPrinter this is small tool for printing string yyyymmdd between to dates
+	PrintDays - this is small tool for printing string yyyymmdd between two dates
 	"""
 	def __init__(self):
 		self.rxDate = re.compile('(?P<year>\d{4})-{,1}(?P<month>\d{2})-{,1}(?P<day>\d{2})')
@@ -50,12 +50,12 @@ class DayPrinter(object):
 
 
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser(description='Print day between two dates')
+	parser = argparse.ArgumentParser(description='PrintDays - this is small tool for printing string yyyymmdd between two dates')
 	parser.add_argument('-m', '--mode', choices='dwm', help='Print mode: d - day, w - week, m - month (default=d)', default='d')
 	parser.add_argument('-b', '--begin', help='Begin date', required=True)
 	parser.add_argument('-e', '--end', help='End date', required=True)
 	args = parser.parse_args()
 
-	day_printer = DayPrinter()
-	if day_printer.Print(args.mode, args.begin, args.end) != 0:
+	pdays = PrintDays()
+	if pdays.Print(args.mode, args.begin, args.end) != 0:
 		parser.print_usage()
